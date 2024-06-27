@@ -10,7 +10,17 @@
 </head>
 
 <body>
-
+    <div id="app">
+        <ul>
+            <li v-for="(todo, index) in todos" :key="index" @click="toggleDone(index)">
+                <s v-if="todo.done">{{ todo.text }}</s>
+                <span v-else>{{ todo.text }}</span>
+                <button @click="removeTodo(index)">x</button>
+            </li>
+        </ul>
+        <input type="text" v-model="newTodo" @keyup.enter="addTodo">
+        <button @click="addTodo">Aggiungi</button>
+    </div>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="./js/script.js"></script>
