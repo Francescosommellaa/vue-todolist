@@ -10,7 +10,15 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="container">
+
+        <h1>VUE TO DO LIST</h1>
+
+        <div>
+            <input type="text" v-model="newTodo" @keyup.enter="addTodo">
+            <button @click="addTodo">Aggiungi</button>
+        </div>
+
         <ul>
             <li v-for="(todo, index) in todos" :key="index" @click="toggleDone(index)">
                 <s v-if="todo.done">{{ todo.text }}</s>
@@ -18,8 +26,6 @@
                 <button @click="removeTodo(index)">x</button>
             </li>
         </ul>
-        <input type="text" v-model="newTodo" @keyup.enter="addTodo">
-        <button @click="addTodo">Aggiungi</button>
     </div>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
